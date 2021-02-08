@@ -9,6 +9,17 @@ public class Libro {
 
     private int totalPaginas;
     private int paginaActual;
+    
+    public Libro (String titulo, String autor){
+        this.titulo = titulo;
+        this.autor = autor;
+    }
+    
+    public Libro (String titulo, String autor, int paginas){
+        this.titulo = titulo;
+        this.autor = autor;
+        this.paginas =  paginas;
+    }
 
     //Setter y getter
     public String getTitulo() {
