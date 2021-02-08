@@ -16,9 +16,9 @@ public class Principal {
      */
     public static void main(String[] args) {
         
-        CuentaBancaria miCuenta1 = new CuentaBancaria();
+        CuentaBancaria111 miCuenta1 = new CuentaBancaria111();
        
-        CuentaBancaria miCuenta2 = new CuentaBancaria();
+        CuentaBancaria111 miCuenta2 = new CuentaBancaria111();
  
         
     }

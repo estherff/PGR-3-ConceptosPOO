@@ -9,10 +9,18 @@ package gal.teis.pgr.estatico_instancia;
  *
  * @author Esther Ferreiro
  * Clase para la gestión de cuentas bancarias
- * Uso de propiedad estática/variale de clase
- * Solo hay getTotalCuentas() no hay setTotalCuentas()
+ * Creamos un nuevo método publico y estático para recalcular el interes de una cuenta
+ * mediante el método public static void calcularInteres(CuentaBancaria111 laCuenta)
+ * Este método llama a  private static double calculoDeInteres(double saldo), solo lo
+ * puede llamar porque es estático.
+ * "Un método estático puede ser llamado por otro método estático y también por métodos
+ * de instancia"
+ * "Un método estático solo puede llamar a otro método estático y solo puede usar variables
+ * locales y propiedades estáticas"
+ * "Un método de instancia puede llamar a propiedades y métodos de instanca y estáticos"
+ * 
  */
-public class CuentaBancaria {
+public class CuentaBancaria111 {
 
     // Atributos o variables miembro
     private String nombre;
@@ -28,8 +36,7 @@ public class CuentaBancaria {
      * Crea una instancia de la clase incrementando a la vez el total de cuentas
      * creadas a partir de esta clase
      **/
-    public CuentaBancaria(){//Acceso de constructor a propiedad estática
-        //incrementa la propiedad estática
+    public CuentaBancaria111(){//Acceso de constructor a propiedad estática
         totalCuentas++;//incrementa el contador de cuentas creadas
     }
 
@@ -37,11 +44,13 @@ public class CuentaBancaria {
      * Crea una instancia de la clase incrementando a la vez el total de cuentas
      * creadas a partir de esta clase
      **/
-    public CuentaBancaria(String nombre, String nCuenta, double saldo){//Acceso de constructor a propiedad estática
+    public CuentaBancaria111(String nombre, String nCuenta, double saldo){//Acceso de constructor a propiedad estática
         this.nombre = nombre;
         this.nCuenta = nCuenta;
         this.saldo = saldo;
-        //incrementa la propiedad estática
+        //Se llama a un método privado y estático para calcular el interes inicial
+        this.tipoInteres = calculoDeInteres(this.saldo);
+        
         totalCuentas++;//incrementa el contador de cuentas creadas
     }
 
@@ -133,4 +142,32 @@ public class CuentaBancaria {
         }
         return reintegroCorrecto;
     }
+    
+    
+     /**
+     * Calcula el interes de la cuenta para una instancia que se pasa por parámetro
+     * @param laCuenta CuentaBancaria111 objeto en el que se va a calcular el interes
+     * */
+    public static void calcularInteres(CuentaBancaria111 laCuenta){//Acceso de método estático a propiedades de instancia de un objeto pasado por parámetro
+        double aux_comision;
+        aux_comision = calculoDeInteres(laCuenta.getSaldo());
+    }
+    
+     /**
+     * Calcula el interes de la cuenta en función del saldo
+     * Es un método privado porque solo se usará desde dentro de la clase
+     * @param laCuenta CuentaBancaria111 objeto en el que se va a calcular el interes
+     * */
+    private static double calculoDeInteres(double saldo){
+        double aux_comision;
+        if (saldo < 2000){
+            aux_comision = 0.03;
+        }else if (saldo < 6000){
+            aux_comision = 0.02;
+        }else{
+            aux_comision = 0.01;
+        }
+        return aux_comision;
+    }
+
 }

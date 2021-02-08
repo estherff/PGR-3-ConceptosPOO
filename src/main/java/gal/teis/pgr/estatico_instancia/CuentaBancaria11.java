@@ -8,11 +8,13 @@ package gal.teis.pgr.estatico_instancia;
 /**
  *
  * @author Esther Ferreiro
- * Clase para la gestión de cuentas bancarias
- * Uso de propiedad estática/variale de clase
- * Solo hay getTotalCuentas() no hay setTotalCuentas()
+ * Clase para la gestión de cuentas bancarrias
+ * Hay un método privado y estático para calcular el interes.
+ * En la anterior había un método de instancia para el cálculo del interes en
+ * el constructor, ahora se lo hemos convertido en estático... y no hay ningún 
+ * cambio en su uso dentro de la clase, en el constructor
  */
-public class CuentaBancaria {
+public class CuentaBancaria11 {
 
     // Atributos o variables miembro
     private String nombre;
@@ -28,8 +30,7 @@ public class CuentaBancaria {
      * Crea una instancia de la clase incrementando a la vez el total de cuentas
      * creadas a partir de esta clase
      **/
-    public CuentaBancaria(){//Acceso de constructor a propiedad estática
-        //incrementa la propiedad estática
+    public CuentaBancaria11(){//Acceso de constructor a propiedad estática
         totalCuentas++;//incrementa el contador de cuentas creadas
     }
 
@@ -37,11 +38,13 @@ public class CuentaBancaria {
      * Crea una instancia de la clase incrementando a la vez el total de cuentas
      * creadas a partir de esta clase
      **/
-    public CuentaBancaria(String nombre, String nCuenta, double saldo){//Acceso de constructor a propiedad estática
+    public CuentaBancaria11(String nombre, String nCuenta, double saldo){//Acceso de constructor a propiedad estática
         this.nombre = nombre;
         this.nCuenta = nCuenta;
         this.saldo = saldo;
-        //incrementa la propiedad estática
+        //Se llama a un método privado y estático para calcular el interes inicial
+        this.tipoInteres = calculoDeInteres(this.saldo);
+        
         totalCuentas++;//incrementa el contador de cuentas creadas
     }
 
@@ -133,4 +136,22 @@ public class CuentaBancaria {
         }
         return reintegroCorrecto;
     }
+    
+    /**
+     * Calcula el interes de la cuenta en función del saldo
+     * Es un método privado porque solo se usará desde dentro de la clase
+     * @param laCuenta CuentaBancaria111 objeto en el que se va a calcular el interes
+     * */
+    private static double calculoDeInteres(double saldo){
+        double aux_comision;
+        if (saldo < 2000){
+            aux_comision = 0.03;
+        }else if (saldo < 6000){
+            aux_comision = 0.02;
+        }else{
+            aux_comision = 0.01;
+        }
+        return aux_comision;
+    }
+
 }
