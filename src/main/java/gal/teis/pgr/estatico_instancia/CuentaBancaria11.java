@@ -17,7 +17,7 @@ package gal.teis.pgr.estatico_instancia;
 public class CuentaBancaria11 {
 
     // Atributos o variables miembro
-    private String nombre;
+    private String titular;
     private String nCuenta;
     private double tipoInteres;
     private double saldo;
@@ -26,20 +26,13 @@ public class CuentaBancaria11 {
     // Variable de clase
     private static int totalCuentas; 
     
-    /**
-     * Crea una instancia de la clase incrementando a la vez el total de cuentas
-     * creadas a partir de esta clase
-     **/
-    public CuentaBancaria11(){//Acceso de constructor a propiedad estática
-        totalCuentas++;//incrementa el contador de cuentas creadas
-    }
-
+    
     /**
      * Crea una instancia de la clase incrementando a la vez el total de cuentas
      * creadas a partir de esta clase
      **/
     public CuentaBancaria11(String nombre, String nCuenta, double saldo){//Acceso de constructor a propiedad estática
-        this.nombre = nombre;
+        this.titular = nombre;
         this.nCuenta = nCuenta;
         this.saldo = saldo;
         //Se llama a un método privado y estático para calcular el interes inicial
@@ -48,10 +41,10 @@ public class CuentaBancaria11 {
         totalCuentas++;//incrementa el contador de cuentas creadas
     }
 
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTitular(String titular) {
+        this.titular = titular;
     }
+
 
     /**
      * Para el nivel = 1 permite modidificar el nº de cuenta
@@ -76,8 +69,8 @@ public class CuentaBancaria11 {
     valor se pueda modificar por medio de un método. 
     Solo se modifica en los constructores*/
 
-    public String getNombre() {
-        return nombre;
+    public String getTitular() {
+        return titular;
     }
 
     public String getNCuenta() {
@@ -152,6 +145,15 @@ public class CuentaBancaria11 {
             aux_comision = 0.01;
         }
         return aux_comision;
+    }
+    /**
+    * Muestra los datos de un objeto como un String
+    * @return String Cadena con los datos del objeto
+    **/
+    public String cuentaComoString(){
+        return "La titular de la cuenta es " + getTitular()+
+                "\nEl número de la cuenta es " + getNCuenta()+
+                "\nEl saldo es "+getSaldo();
     }
 
 }

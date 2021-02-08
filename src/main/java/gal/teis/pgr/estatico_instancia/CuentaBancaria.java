@@ -15,7 +15,7 @@ package gal.teis.pgr.estatico_instancia;
 public class CuentaBancaria {
 
     // Atributos o variables miembro
-    private String nombre;
+    private String titular;
     private String nCuenta;
     private double tipoInteres;
     private double saldo;
@@ -38,7 +38,7 @@ public class CuentaBancaria {
      * creadas a partir de esta clase
      **/
     public CuentaBancaria(String nombre, String nCuenta, double saldo){//Acceso de constructor a propiedad estática
-        this.nombre = nombre;
+        this.titular = nombre;
         this.nCuenta = nCuenta;
         this.saldo = saldo;
         //incrementa la propiedad estática
@@ -46,8 +46,8 @@ public class CuentaBancaria {
     }
 
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+       public void setTitular(String titular) {
+        this.titular = titular;
     }
 
     /**
@@ -73,8 +73,8 @@ public class CuentaBancaria {
     valor se pueda modificar por medio de un método. 
     Solo se modifica en los constructores*/
 
-    public String getNombre() {
-        return nombre;
+    public String getTitular() {
+        return titular;
     }
 
     public String getNCuenta() {
@@ -132,5 +132,14 @@ public class CuentaBancaria {
             reintegroCorrecto = false;
         }
         return reintegroCorrecto;
+    }
+    /**
+    * Muestra los datos de un objeto como un String
+    * @return String Cadena con los datos del objeto
+    **/
+    public String cuentaComoString(){
+        return "La titular de la cuenta es " + getTitular()+
+                "\nEl número de la cuenta es " + getNCuenta()+
+                "\nEl saldo es "+getSaldo();
     }
 }
