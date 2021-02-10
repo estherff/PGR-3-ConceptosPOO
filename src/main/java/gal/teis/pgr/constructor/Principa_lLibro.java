@@ -18,7 +18,7 @@ package gal.teis.pgr.constructor;
  *
  * @author Esther Ferreiro
  */
-public class Principal {
+public class Principa_lLibro {
 
     /**
      * @param args the command line arguments
