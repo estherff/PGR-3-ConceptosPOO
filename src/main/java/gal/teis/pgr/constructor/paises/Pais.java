@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gal.teis.pgr.paises;
+package gal.teis.pgr.constructor.paises;
 
+import gal.teis.pgr.paises.*;
 import java.util.Objects;
 
 /**
