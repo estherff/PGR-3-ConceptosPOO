@@ -5,7 +5,6 @@
  */
 package gal.teis.pgr.constructor.paises;
 
-import gal.teis.pgr.paises.*;
 import java.util.Objects;
 
 /**

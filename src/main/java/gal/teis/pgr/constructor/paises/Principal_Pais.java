@@ -6,6 +6,7 @@
 package gal.teis.pgr.constructor.paises;
 
 import gal.teis.libreriadam.ControlData;
+import gal.teis.libreriadam.Menu;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -133,11 +134,11 @@ public class Principal_Pais {
 
             /*La clase Menu permite imprimir el menú a partir de los datos de un ArrayList<String>
             y utilizar métodos para control de rango*/
-            gal.teis.Menu miMenu = new gal.teis.Menu(misOpciones);
+            Menu miMenu = new Menu(misOpciones);
             miMenu.printMenu();
 
             /*La clase ControlData permite hacer un control de tipo leído*/
-            opcion = gal.teis.ControlData.lerByte(sc);
+            opcion = ControlData.lerByte(sc);
             correcta = miMenu.rango(opcion);
 
         } while (!correcta);
@@ -162,11 +163,11 @@ public class Principal_Pais {
 
             /*La clase Menu permite imprimir el menú a partir de los datos de un ArrayList<String>
             y utilizar métodos para control de rango*/
-            gal.teis.Menu miMenu = new gal.teis.Menu(misOpciones);
+            Menu miMenu = new Menu(misOpciones);
             miMenu.printMenu();
 
             /*La clase ControlData permite hacer un control de tipo leído*/
-            opcion = gal.teis.ControlData.lerByte(sc);
+            opcion = ControlData.lerByte(sc);
             correcta = miMenu.rango(opcion);
 
         } while (!correcta);

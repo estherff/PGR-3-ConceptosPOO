@@ -14,8 +14,8 @@
  */
 package gal.teis.pgr.estatico_instancia;
 
-import gal.teis.ControlData;
-import gal.teis.Menu;
+import gal.teis.libreriadam.ControlData;
+import gal.teis.libreriadam.Menu;
 import java.util.ArrayList;
 import java.util.Scanner;
 
