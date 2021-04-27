@@ -19,7 +19,7 @@ public class Principal {
         //Muestra el área de distintas figuras y muestra el promedio de los valores
         FiguraGeometrica[] figuras2 = new FiguraGeometrica[]{new Triangulo(2, 5), new Rectangulo(5, 6), new Circulo(3 / Math.sqrt(Math.PI))};
         System.out.println(FiguraGeometricaUtils.areaPromedio(figuras2));
-
+        
     }
 
 }
